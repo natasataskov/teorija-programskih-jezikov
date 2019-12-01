@@ -1,6 +1,6 @@
-LET REC map f List =
+LET REC map (f, List) =
     match List with
     | Nil -> Nil
-    | Cons (x, xs) -> Cons (f x, map f xs)
+    | Cons (x, xs) -> Cons (f x, map (f, xs))
 IN
-map 0 Nil
+map (0, Nil)
