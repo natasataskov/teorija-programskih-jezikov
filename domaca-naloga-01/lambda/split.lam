@@ -1,14 +1,8 @@
-let split ListofPairs =
-let first = Nil
-and second = Nil
-in
-  let rec split1 (ListofPairs, first, second) =
-    match ListofPairs with
-    | Nil -> Pair (first, second)
-    | Cons ( Pair(x, y), xs) -> 
-        let first = Cons (first, x)
-        and second = Cons (second, y) 
-        and split1 (xs, first, second)
-    end
-in
-split Cons( Pair(1,2), Pair(3,4) )
+LET REC split list = 
+  MATCH list WITH
+    | [] -> {[], []}
+    | x :: xs -> 
+      LET list1 = split xs
+      IN {(Fst x) :: (Fst list1), (Snd x) :: (Snd list1)}
+IN
+split ({1, 2} :: {3, 4} :: {1 + 1, 3 * 3} :: [])

@@ -1,6 +1,6 @@
-LET REC map (f, List) =
-    match List with
-    | Nil -> Nil
-    | Cons (x, xs) -> Cons (f x, map (f, xs))
+LET REC map f = FUN list ->
+    MATCH list WITH
+    | [] -> []
+    | x :: xs -> (f x) :: (map f xs)
 IN
-map (0, Nil)
+map (FUN x -> x * x + 3 * x - 7) (2 :: 4 :: 6 :: 8 :: 10 :: [] )
