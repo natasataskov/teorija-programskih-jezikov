@@ -1,0 +1,2 @@
+git checkout -b domaca-naloga-02
+git push --set-upstream origin domaca-naloga-02
